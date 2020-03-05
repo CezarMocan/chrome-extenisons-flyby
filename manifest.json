@@ -2,5 +2,29 @@
   "name": "FlyBy Extension",
   "version": "1.0",
   "description": "This is our first Chrome Extension",
-  "manifest_version": 2
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "https://www.facebook.com/*",
+        "https://www.gsp.ro/*",
+        "https://www.nytimes.com/*",
+        "https://nytimes.com/*"
+      ],
+      "js": [
+        "lib/jquery.min.js",
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
 }
