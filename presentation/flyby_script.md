@@ -2,29 +2,43 @@
 
 Welcome everybody! If we haven't met, I'm Cezar, if we have I'm super happy you're here hiiiiiiii.
 
-So, this is going to be a really informal session, I don't have slides or anything like that. We're just going to be coding together and build a simple Chrome extension from scratch.
+So, this is going to be a really informal session, I don't have slides or anything like that. We're just going to be
+coding together and build a simple Chrome extension from scratch.
 
-I made a Github repository which contains pretty much what we'll be building together. It'll be good for either future reference, and also to save me if I get stuck during this exercise :)
+I made a Github repository which contains pretty much what we'll be building together. It'll be good for either future
+reference, and also to save me if I get stuck during this exercise :)
 
 Also, I haven't really timed this. If we run over, we can stop, but also feel free to leave whenever you have/want to.
 
 * So, to get started, a quick show of hands—has anyone built a Chrome (or other browser) extension before? *
 
-* If anyone feels like sharing, do you have ideas for things you'd want to build using an extension, or is this just exploration for you? *
+* If anyone feels like sharing, do you have ideas for things you'd want to build using an extension, or is this just
+exploration for you? *
 
 
-Cool, cool. In this session we'll really just scartch the surface of this topic. Extensions look small and innocent, but somehow there's a super rich set of functionalities they're capable of. It's a whole universe out there. It's kinda ridiculous. However—I'm not an expert on this, I've built a few myself, but never went into depth with everything they're capable of. So there will likely be questions I won't have answers to. We'll figure it out as we go.
+Cool, cool. In this session we'll really just scartch the surface of this topic. Extensions look small and innocent,
+but somehow there's a super rich set of functionalities they're capable of. It's a whole universe out there.
+It's kinda ridiculous. However—I'm not an expert on this, I've built a few myself, but never went into depth
+with everything they're capable of. So there will likely be questions I won't have answers to. We'll figure it out as we go.
 
 Also—please stop me at any point with questions.
 
 So, just a tiny theoretical intro before we jump into actually building one.
 
-A Chrome extension is just some HTML, CSS and Javascript that allows you to add some functionality to Chrome. It's basically just a website that lives inside of Chrome, which can make use of the Chrome APIs. These Chrome APIs give you programatic access to parts of the browser—from interacting with tabs in the browser, to manipulating the contents of an open webpage, interction with bookmarks and history, browser appearance, and so on. A good amount of the actions you can do in the browser as a human actor could be automated using extensions. They're super powerful.
+A Chrome extension is just some HTML, CSS and Javascript that allows you to add some functionality to Chrome.
+It's basically just a website that lives inside of Chrome, which can make use of the Chrome APIs.
+These Chrome APIs give you programatic access to parts of the browser—from interacting with tabs in the browser,
+to manipulating the contents of an open webpage, interction with bookmarks and history, browser appearance, and so on.
+A good amount of the actions you can do in the browser as a human actor could be automated using extensions.
+They're super powerful.
 
-However, today we're going to focus on two main things: interacting with webpages from within the extension (changing appearance, content, etc.), and creating a user interface for the extension. We're going to skip almost completely the browser related actions, that could be the topic of another FlyBy.
+However, today we're going to focus on two main things: interacting with webpages from within the extension
+(changing appearance, content, etc.), and creating a user interface for the extension. We're going to skip
+almost completely the browser related actions, that could be the topic of another FlyBy.
 
-All right, let's make an extension. Follow along on your computer if you want, and stop me for questions when things are not clear.
-We might not have time for individual troubleshooting during the walkthrough, but I'll try to go slowly, and we can do bugfixes one on one at the end.
+All right, let's make an extension. Follow along on your computer if you want, and stop me for questions when
+things are not clear. We might not have time for individual troubleshooting during the walkthrough,
+but I'll try to go slowly, and we can do bugfixes one on one at the end.
 
 The first thing we're going to do is create a new folder for our extension.
 
@@ -40,19 +54,23 @@ Show scheme. Talk about background, content, popup scripts.
 
 They are all contained, meaning that you can't call JS functions between them.
 In more official terms, it means that each one of them is running inside its own JS context.
-You can communicate between them using the message passing API that Chrome makes available to scripts inside of the extension.
-If my understanding is correct, that's largely a security measure—separating the context of the web page you're seeing, from other things Chrome can do.
+You can communicate between them using the message passing API that Chrome makes available to scripts
+inside of the extension.
+If my understanding is correct, that's largely a security measure—separating the context of the web
+page you're seeing, from other things Chrome can do.
 
 Today we're going to deal with the CONTENT and POPUP side of things, and will ignore the BACKGROUND.
 
 Let's start with the content script—this is the script that can interact directly with our webpage.
 We're going to do a simple exercise of changing the style of all elements on the page.
 
-The inspiration for this exercise is a net artist, Rafael Rozendaal. Some of you might be familiar with him. He makes abstract websites, and
-has worked with browser extensions. He has this series that I love so much, where he created weavings out of the structure of various
-websites on the internet. We're going to build an extension that turns websites into abstract compositions like these ones.
+The inspiration for this exercise is a net artist, Rafael Rozendaal. Some of you might be familiar with him.
+He makes abstract websites, and has worked with browser extensions. He has this series that I love so much,
+where he created weavings out of the structure of various websites on the internet. We're going to build an
+extension that turns websites into abstract compositions like these ones.
 
-3. Update manifest.json to include a content script, and give it permissions for activeTab. Load the extension in the browser and see what happens.
+3. Update manifest.json to include a content script, and give it permissions for activeTab.
+Load the extension in the browser and see what happens.
 
 4. Create a content.js file and do a console.log inside of it. Navigate to nytimes.com and watch the console.log do its thing.
 
@@ -80,7 +98,8 @@ Siiiiick. We're almost done with the first part.
 
 11. The last step, let's try this on a few other websites. For that, we need to update the "matches" in our manifest.json.
 
-The bottom line here is that you can manipulate the page in any way you want. You can add custom javascript, add HTML elements, remove HTML elements.
+The bottom line here is that you can manipulate the page in any way you want. You can add custom javascript,
+add HTML elements, remove HTML elements.
 Anything you can do on your own website, you can do in a content script inside of the chrome extension to an existing website.
 
 One thing I didn't show, but that's easy to do, is bringing in external dependencies. For example, the p5 library, or jquery, or tone.js.
