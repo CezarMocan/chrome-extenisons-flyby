@@ -1,6 +1,4 @@
-** Intro **
-
-Welcome everybody! If we haven't met, I'm Cezar, if we have I'm super happy you're here hiiiiiiii.
+Welcome hiiiiiii <3
 
 So, this is going to be a really informal session, I don't have slides or anything like that. We're just going to be
 coding together and build a simple Chrome extension from scratch.
