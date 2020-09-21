@@ -3,7 +3,7 @@ Welcome hiiiiiii <3
 So, this is going to be a really informal session, I don't have slides or anything like that. We're just going to be
 coding together and build a simple Chrome extension from scratch.
 
-I made a Github repository which contains pretty much what we'll be building together. It'll be good for either future
+I made a [Github repository](https://github.com/CezarMocan/chrome-extenisons-flyby) which contains pretty much what we'll be building together. It'll be good for either future
 reference, and also to save me if I get stuck during this exercise :)
 
 Also, I haven't really timed this. If we run over, we can stop, but also feel free to leave whenever you have/want to.
